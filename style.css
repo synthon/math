@@ -1,50 +1,121 @@
+html {
+  background: url("pexels-background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .field {
-  border: 1px solid #1325c27a;
+  border: 1px solid #1325c2a2;
   width: 300px;
   height: 350px;
   margin: auto;
   background-color: #00000050;
-  z-index: 1;
   border-radius: 10%;
 }
 h1 {
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
+  color: #2980b9;
+  font-size: 80px;
 }
-html {
-  background-color: #6413923d;
-}
+
 .example {
   width: 200px;
   height: 50px;
   border: 1px solid #1325c27a;
-  background-color: #faf6f6b2;
+  background-color: #faf6f6da;
   position: relative;
   margin: 5% 0% 0% 16%;
   font-size: 40px;
   text-align: center;
+  color: black;
 }
 .answer {
   width: 200px;
   height: 70px;
+  border: 1px solid #1325c27a;
   font-size: 60px;
   position: relative;
   margin: 5% 0% 0% 16%;
   font-size: 40px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 #score {
-  margin: 0% 0% 0% 14%;
+  margin: auto;
   width: 200px;
   height: 70px;
   background-color: #68b34ab2;
   font-size: 40px;
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
+  font-weight: bolder;
 }
 p {
-  margin: 0;
-  padding: 0;
+  margin: auto;
   font-size: 70px;
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
+}
+.timer {
+  width: 200px;
+  height: 70px;
+  margin: auto;
+  background-color: #68b34ab2;
+  font-size: 60px;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  text-align: center;
+}
+
+.time {
+  width: 200px;
+  height: 100px;
+  margin: auto;
+  background-color: #f30d79b2;
+  font-size: 30px;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  text-align: center;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  font-weight: bolder;
+}
+.scoreLabel {
+  color: #c03a2b;
+  font-weight: bolder;
+  text-shadow: 3px 0px 15px rgba(165, 177, 152, 1);
+}
+.start {
+  border: 1px solid #1325c2a2;
+  width: 200px;
+  height: 50px;
+  background-color: #000000b0;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  font-size: 200%;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  position: absolute;
+  margin-left: 225px;
+  margin-top: 150px;
+  font-weight: bolder;
+  color: #e93077;
+  transform: rotate(90deg);
+  text-align: center;
+  letter-spacing: 2px;
+}
+.pINST {
+  position: absolute;
+  left: 5%;
+  color: #1bbeffb2;
+  font-family: 'Markazi Text', serif;
+  font-weight: bolder;
+  font-size: 70px;
+}
+.instructions {
+  position: absolute;
+  left: 5%;
+  color: #ff1becb2;
+  font-family: 'Markazi Text', serif;
+  font-weight: bolder;
+  font-size: 70px;
+  height: 400px;
 }

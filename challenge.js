@@ -1,6 +1,9 @@
 const display = document.querySelector(".example"),
       answer = document.querySelector(".answer"),
       score = document.querySelector("#score");
+let   timer = 30;
+
+(() => {startCount()})(); //math example iife
 
 function startCount() {
   let number1 = Math.round(Math.random()*100),
@@ -34,7 +37,19 @@ function resultCheck(ke) {
     startCount();
   }
 }
-document.addEventListener("keydown", resultCheck);
-// document.addEventListener("click", (e) => {console.log(e)});
 
-(() => {startCount()})(); //math example iife
+function timerStart() {
+    document.querySelector(".timer").textContent = timer;
+
+    if (timer < 0) {
+      alert("Time's UP!");
+      timer = 30;
+    }
+    else {
+      setTimeout(timerStart, 1000);
+      --timer;
+    }
+}
+document.addEventListener("keydown", resultCheck);
+document.addEventListener("click", timerStart);
+// document.addEventListener("click", (e) => {console.log(e)});

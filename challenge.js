@@ -28,7 +28,7 @@ function resultCheck(ke) {
   }
 }
 document.addEventListener("keydown", resultCheck);
-document.addEventListener("click", (e) => {console.log(e)});
+// document.addEventListener("click", (e) => {console.log(e)});
 
 (function() {
   startPrimer();

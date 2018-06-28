@@ -44,6 +44,7 @@ function timerStart() {
     if (timer < 0) {
       alert("Time's UP!");
       timer = 30;
+      score.textContent = "0";
     }
     else {
       setTimeout(timerStart, 1000);

@@ -10,21 +10,25 @@ function resultCheck(ke) {
   const score = document.querySelector("#score");
   const key = ke.key;
   if ("0123456789".includes(key)) {
-    answer.value += key;
+    (document.hasFocus())
+    ? answer.value = answer.value
+    : answer.value += key;
   }
-  if (["Backspace", "Delete", "CE"].includes(key)) {
+  if (["Backspace", "Delete"].includes(key)) {
     answer.value = answer.value.slice(this.length, -1);
   }
   if (["Enter"].includes(key)) {
+    let points = parseInt(score.textContent);
+
     (eval(display) === parseInt(answer.value))
-    ? score.textContent += 1
-    : score.textContent -= 2;
+    ? score.textContent = points + 1
+    : score.textContent = points - 2;
     answer.value = "";
     startPrimer();
   }
 }
 document.addEventListener("keydown", resultCheck);
-// document.addEventListener("click", (e) => {console.log(e)});
+document.addEventListener("click", (e) => {console.log(e)});
 
 (function() {
   startPrimer();

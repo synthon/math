@@ -26,7 +26,7 @@ function resultCheck(ke) {
   if (["Enter"].includes(key)) {
     const points = parseInt(score.textContent);
 
-    (eval(display) === parseInt(answer.value))
+    (eval(display.value) === parseInt(answer.value))
     ? score.textContent = points + 1
     : score.textContent = points - 2;
     answer.value = "";

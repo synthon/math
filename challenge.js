@@ -1,13 +1,14 @@
+const display = document.querySelector(".example");
+const answer = document.querySelector(".answer");
+const score = document.querySelector("#score");
+
 function startCount() {
   let number1 = Math.round(Math.random()*100);
   let number2 = Math.round(Math.random()*100);
-  document.querySelector(".example").value = `${number1} + ${number2}`;
+  display.value = `${number1} + ${number2}`;
 }
 
 function resultCheck(ke) {
-  const display = document.querySelector(".example").value;
-  const answer = document.querySelector(".answer");
-  const score = document.querySelector("#score");
   const key = ke.key;
 
   if ("0123456789".includes(key)) {

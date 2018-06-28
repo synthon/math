@@ -1,0 +1,54 @@
+.field {
+  border: 1px solid #1325c27a;
+  width: 300px;
+  height: 350px;
+  margin: auto;
+  background-color: #00000050;
+  z-index: 1;
+  border-radius: 10%;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+html {
+  background-color: #6413923d;
+}
+.example {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #1325c27a;
+  background-color: #faf6f6b2;
+  position: relative;
+  margin: 5% 0% 0% 16%;
+  font-size: 40px;
+  text-align: center;
+}
+
+.answer {
+  width: 200px;
+  height: 70px;
+  font-size: 60px;
+  position: relative;
+  margin: 5% 0% 0% 16%;
+  font-size: 40px;
+}
+
+#score {
+  margin: 0% 0% 0% 14%;
+  width: 200px;
+  height: 70px;
+  background-color: #68b34ab2;
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Encode Sans Condensed', sans-serif;
+}
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 70px;
+  text-align: center;
+  font-family: 'Encode Sans Condensed', sans-serif;
+}

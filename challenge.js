@@ -10,9 +10,7 @@ function resultCheck(ke) {
   const score = document.querySelector("#score");
   const key = ke.key;
   if ("0123456789".includes(key)) {
-    (document.hasFocus())
-    ? answer.value = answer.value
-    : answer.value += key;
+    answer.value += key;
   }
   if (["Backspace", "Delete"].includes(key)) {
     answer.value = answer.value.slice(this.length, -1);

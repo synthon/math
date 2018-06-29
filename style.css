@@ -1,5 +1,5 @@
 html {
-  background: url("pexels-background.jpeg");
+  background: url("pexels-photo-722141.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -80,7 +80,7 @@ p {
   font-weight: bolder;
 }
 .scoreLabel {
-  color: #c03a2b;
+  color: #d12411;
   font-weight: bolder;
   text-shadow: 3px 0px 15px rgba(165, 177, 152, 1);
 }
@@ -105,17 +105,19 @@ p {
 .pINST {
   position: absolute;
   left: 5%;
-  color: #1bbeffb2;
+  color: #0c493ad3;
   font-family: 'Markazi Text', serif;
   font-weight: bolder;
-  font-size: 70px;
+  font-size: 60px;
 }
 .instructions {
+  background-color: #00000000;
   position: absolute;
   left: 5%;
-  color: #ff1becb2;
-  font-family: 'Markazi Text', serif;
+  color: #106781;
+  font-family: serif;
   font-weight: bolder;
   font-size: 70px;
   height: 400px;
+  width: 400px;
 }

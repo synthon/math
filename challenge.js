@@ -1,16 +1,19 @@
 const display = document.querySelector(".example"),
       answer = document.querySelector(".answer"),
-      score = document.querySelector("#score");
+      score = document.querySelector("#score"),
+      start = document.querySelector(".start");
 let   timer = 30;
 
-(() => {startCount()})(); //math example iife
-
 function startCount() {
-  let number1 = Math.round(Math.random()*100),
-      number2 = Math.round(Math.random()*100);
+  let min = 11,
+      max = 99,
+      number1 = Math.round(Math.random() * (max - min) + min),
+      number2 = Math.round(Math.random() * (max - min) + min);
 
   display.value = `${number1} + ${number2}`;
 }
+
+(() => {startCount()})(); //math example iife
 
 function resultCheck(ke) {
   const key = ke.key;
@@ -37,20 +40,19 @@ function resultCheck(ke) {
     startCount();
   }
 }
-
-function timerStart() {
-    document.querySelector(".timer").textContent = timer;
-
-    if (timer < 0) {
-      alert("Time's UP!");
-      timer = 30;
-      score.textContent = "0";
-    }
-    else {
-      setTimeout(timerStart, 1000);
-      --timer;
-    }
-}
 document.addEventListener("keydown", resultCheck);
-document.addEventListener("click", timerStart);
+
+start.onclick = function timerStart() {
+  document.querySelector(".timer").textContent = timer;
+
+  if (timer < 0) {
+    alert("Time's UP!");
+    timer = 30;
+    score.textContent = "0";
+  }
+  else {
+    setTimeout(timerStart, 1000);
+    --timer;
+  }
+}
 // document.addEventListener("click", (e) => {console.log(e)});

@@ -3,7 +3,6 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .field {
   border: 1px solid #1325c2a2;
   width: 300px;
@@ -18,7 +17,6 @@ h1 {
   color: #2980b9;
   font-size: 80px;
 }
-
 .example {
   width: 200px;
   height: 50px;
@@ -66,7 +64,6 @@ p {
   font-family: 'Encode Sans Condensed', sans-serif;
   text-align: center;
 }
-
 .time {
   width: 200px;
   height: 100px;

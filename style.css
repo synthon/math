@@ -118,3 +118,9 @@ p {
   height: 7em;
   width: 5em;
 }
+
+@media screen and (max-width: 600px) {
+  .rules {
+    display: none;
+  }
+}

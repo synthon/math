@@ -40,7 +40,7 @@ function resultCheck(ke) {
         : score.textContent = points - 2;
       answer.value = "";
       startCount();
-      poskazka();
+      podskazka();
   }
 }
 document.addEventListener("keydown", resultCheck);
@@ -59,7 +59,7 @@ start.onclick = function timerStart() {
   }
 }
 // document.addEventListener("click", (e) => {console.log(e)});
-function poskazka() {
+function podskazka() {
   document.querySelector(".answer").value = eval(display.value);
 }
-poskazka();
+podskazka();

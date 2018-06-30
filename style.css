@@ -32,7 +32,6 @@ h1 {
   width: 200px;
   height: 70px;
   border: 1px solid #1325c27a;
-  font-size: 60px;
   position: relative;
   margin: 5% 0% 0% 16%;
   font-size: 40px;
@@ -107,7 +106,7 @@ p {
   font-size: 50px;
 }
 .instructions {
-  background-color: #00000000;
+  background-color: #0000;
   position: absolute;
   left: 5%;
   color: #106781;

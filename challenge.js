@@ -4,13 +4,15 @@ const display = document.querySelector(".example"),
       start   = document.querySelector(".start");
 let   timer   = 30;
 
+// just testing stuff... very unstable x.x
 function startCount() {
-  let min = 11,
+  let min = 1,
       max = 99,
       number1 = Math.round(Math.random() * (max - min) + min),
       number2 = Math.round(Math.random() * (max - min) + min);
-
-  display.value = `${number1} + ${number2}`;
+  const sign = ["+", "-", "*", "/"],
+        rand = sign[Math.floor(Math.random() * sign.length)];
+  display.value = `${number1} ${rand} ${number2}`;
 }
 
 (() => {startCount()})(); //math example iife
@@ -34,10 +36,11 @@ function resultCheck(ke) {
       points = parseInt(score.textContent);
 
       eval(display.value) === parseInt(answer.value)
-        ? score.textContent = points + 1
+        ? (score.textContent = points + 1)
         : score.textContent = points - 2;
       answer.value = "";
       startCount();
+      poskazka();
   }
 }
 document.addEventListener("keydown", resultCheck);
@@ -56,3 +59,7 @@ start.onclick = function timerStart() {
   }
 }
 // document.addEventListener("click", (e) => {console.log(e)});
+function poskazka() {
+  document.querySelector(".answer").value = eval(display.value);
+}
+poskazka();

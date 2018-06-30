@@ -14,7 +14,7 @@ html {
 h1 {
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
-  color: #2980b9;
+  color: #0c082e;
   font-size: 80px;
 }
 .example {
@@ -100,12 +100,10 @@ p {
   letter-spacing: 2px;
 }
 .pINST {
-  position: absolute;
-  left: 5%;
-  color: #0c493ad3;
+  color: #27073f;
   font-family: 'Markazi Text', serif;
   font-weight: bolder;
-  font-size: 60px;
+  font-size: 50px;
 }
 .instructions {
   background-color: #00000000;
@@ -115,12 +113,14 @@ p {
   font-family: serif;
   font-weight: bolder;
   font-size: 60px;
-  height: 7em;
+  height: 5em;
   width: 5em;
 }
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .rules {
     display: none;
+  }
+  h1 {
+    font-size: 35px;
   }
 }

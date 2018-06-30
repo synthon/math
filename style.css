@@ -75,9 +75,10 @@ p {
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
   font-weight: bolder;
+  color: #fff;
 }
 .scoreLabel {
-  color: #d12411;
+  color: #2f0037;
   font-weight: bolder;
   text-shadow: 3px 0px 15px rgba(165, 177, 152, 1);
 }
@@ -94,7 +95,7 @@ p {
   margin-left: 225px;
   margin-top: 150px;
   font-weight: bolder;
-  color: #e93077;
+  color: #bafefe;
   transform: rotate(90deg);
   text-align: center;
   letter-spacing: 2px;

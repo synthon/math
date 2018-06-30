@@ -10,7 +10,7 @@ function startCount() {
       max = 99,
       number1 = Math.round(Math.random() * (max - min) + min),
       number2 = Math.round(Math.random() * (max - min) + min);
-  const sign = ["+", "-", "*", "/"],
+  const sign = ["+", "-", "*"],
         rand = sign[Math.floor(Math.random() * sign.length)];
   display.value = `${number1} ${rand} ${number2}`;
 }
@@ -40,7 +40,6 @@ function resultCheck(ke) {
         : score.textContent = points - 2;
       answer.value = "";
       startCount();
-      podskazka();
   }
 }
 document.addEventListener("keydown", resultCheck);
@@ -59,7 +58,3 @@ start.onclick = function timerStart() {
   }
 }
 // document.addEventListener("click", (e) => {console.log(e)});
-function podskazka() {
-  document.querySelector(".answer").value = eval(display.value);
-}
-podskazka();

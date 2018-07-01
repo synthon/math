@@ -10,48 +10,68 @@
   <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:100,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script async src="challenge.js"></script>
   <title>Math Challenge</title>
 </head>
 
 <body>
-  <h1>Simple Math Challenge!</h1>
-  <div class="field">
-    <div class="rules">
+  <header>
+    <h1>Simple Math Challenge!</h1>
+  </header>
+
+  <main>
+    <!-- Points guide lines -->
+    <section>
       <fieldset class="instructions">
-          <legend>Points:</legend>
-            <table>
-              <tr class="pINST">
-                  <td>19+</td>
-                  <td>-</td>
-                  <td>Excellent</td>
-              </tr>
-              <tr class="pINST">
-                <td>14-18</td>
-                <td>-</td>
-                <td>Good!</td>
-              </tr>
-              <tr class="pINST">
-                <td>9-13</td>
-                <td>-</td>
-                <td>Fine!</td>
-              </tr>
-              <tr class="pINST">
-                <td>&lt; 9</td>
-                <td>-</td>
-                <td>Bad :(</td>
-              </tr>
-            </table>
+        <legend>Points:</legend>
+          <p class="p-inst">
+            Excellent: 19+<br>
+            Good: 14-18<br>
+            Fine: 9-13<br>
+            Bad: &lt; 9
+          </p>
       </fieldset>
-    </div>
-    <div class="start">start</div>
-    <input class="example" disabled>
-    <input class="answer" type="number">
-    <p class="scoreLabel">SCORE</p>
-    <div id="score">0</div>
-    </div>
-  <div class="timer">30</div>
-  <div class="time">seconds<br>left</div>
-  <script src="challenge.js"></script>
+    </section>
+
+    <!-- do calculations here -->
+    <section class="counter">
+      <div class="field">
+          <div><input class="example" disabled></div>
+          <div><input class="answer" type="number"></div>
+          <div><p class="scoreLabel">SCORE</p></div>
+          <div id="score">0</div>
+          <div class="start">start</div>
+      </div>
+      <div class="timer">30</div>
+      <div class="time">seconds<br>left</div>
+    </section>
+
+    <!-- choosing stuff what you wanna do-->
+    <section>
+      <fieldset class="instructions">
+        <legend>Options:</legend>
+          <div>
+            <input type="radio" id="sqrt" name="math">
+            <label class="options"for="sqrt">sqrt</label>
+          </div>
+          <div>
+            <input type="radio" id="math-operations" name="math" checked>
+            <label class="options"for="math-operations">Default</label>
+          </div>
+          <div>
+            <input type="radio" id="hz" name="math">
+            <label class="options"for="hz">hz</label>
+          </div>
+      </fieldset>
+    </section>
+
+  </main>
+
+  <!-- Statistics -->
+  <article class="statistics">
+    <h2>Statistics</h2>
+  </article>
+
 </body>
 
 </html>

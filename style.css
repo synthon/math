@@ -1,85 +1,85 @@
-html {
+:root {
   background: url("pexels-photo-722141.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-.field {
-  border: 1px solid #1325c2a2;
-  width: 300px;
-  height: 350px;
-  margin: auto;
-  background-color: #00000050;
-  border-radius: 10%;
+main {
+  display: flex;
+  justify-content: center;
 }
 h1 {
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
   color: #0c082e;
-  font-size: 80px;
+  font-size: 50px;
+}
+legend {
+  background-color: #0c082e;
+  color: #bafefe;
+  font-size: 60px;
+}
+.p-inst, .options {
+  color: #27073f;
+  font-family: 'Markazi Text', serif;
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: justify;
+  padding: 0%;
+  margin: 0%;
+}
+.instructions {
+  width: 15em;
+}
+.counter {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.field {
+  border: 1px solid #1325c2a2;
+  width: 300px;
+  height: 350px;
+  background-color: #00000050;
+  border-radius: 10%;
 }
 .example {
   width: 200px;
   height: 50px;
   border: 1px solid #1325c27a;
   background-color: #faf6f6da;
-  position: relative;
-  margin: 5% 0% 0% 16%;
   font-size: 40px;
   text-align: center;
   color: black;
+  display: flex;
+  margin: 5% auto;
 }
 .answer {
   width: 200px;
-  height: 70px;
+  height: 45px;
+  display: flex;
+  margin: auto;
   border: 1px solid #1325c27a;
-  position: relative;
-  margin: 5% 0% 0% 16%;
   font-size: 40px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.9);
 }
+.scoreLabel {
+  margin: 5% auto;
+  font-size: 70px;
+  text-align: center;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  color: #2f0037;
+  font-weight: bolder;
+  text-shadow: 3px 0px 15px rgba(165, 177, 152, 1);
+}
 #score {
-  margin: auto;
   width: 200px;
-  height: 70px;
+  height: 50px;
+  margin: auto;
   background-color: #68b34ab2;
   font-size: 40px;
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
   font-weight: bolder;
-}
-p {
-  margin: auto;
-  font-size: 70px;
-  text-align: center;
-  font-family: 'Encode Sans Condensed', sans-serif;
-}
-.timer {
-  width: 200px;
-  height: 70px;
-  margin: auto;
-  background-color: #68b34ab2;
-  font-size: 60px;
-  font-family: 'Encode Sans Condensed', sans-serif;
-  text-align: center;
-}
-.time {
-  width: 200px;
-  height: 100px;
-  margin: auto;
-  background-color: #f30d79b2;
-  font-size: 30px;
-  font-family: 'Encode Sans Condensed', sans-serif;
-  text-align: center;
-  border-bottom-left-radius: 100%;
-  border-bottom-right-radius: 100%;
-  font-weight: bolder;
-  color: #fff;
-}
-.scoreLabel {
-  color: #2f0037;
-  font-weight: bolder;
-  text-shadow: 3px 0px 15px rgba(165, 177, 152, 1);
 }
 .start {
   border: 1px solid #1325c2a2;
@@ -90,31 +90,43 @@ p {
   border-top-right-radius: 100%;
   font-size: 200%;
   font-family: 'Encode Sans Condensed', sans-serif;
-  position: absolute;
-  margin-left: 225px;
-  margin-top: 150px;
-  font-weight: bolder;
   color: #bafefe;
   transform: rotate(90deg);
   text-align: center;
   letter-spacing: 2px;
+  margin-left: 225px;
+  margin-top: -160px;
 }
-.pINST {
-  color: #27073f;
-  font-family: 'Markazi Text', serif;
-  font-weight: bolder;
+.timer {
+  width: 200px;
+  height: 60px;
+  background-color: #68b34ab2;
   font-size: 50px;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  text-align: center;
+  margin: auto;
 }
-.instructions {
-  background-color: #0000;
-  position: absolute;
-  left: 5%;
-  color: #106781;
-  font-family: serif;
+.time {
+  width: 200px;
+  height: 80px;
+  background-color: #f30d79b2;
+  font-size: 30px;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  text-align: center;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
   font-weight: bolder;
-  font-size: 60px;
-  height: 5em;
-  width: 5em;
+  color: #fff;
+  margin: auto;
+}
+article.statistics {
+  text-align: center;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  color: #ff7400;
+  font-size: 50px;
+  background-color: #0c082e;
+  width: 50%;
+  margin: auto;
 }
 @media screen and (max-width: 800px) {
   .rules {

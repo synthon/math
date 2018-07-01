@@ -10,7 +10,7 @@ function startCount() {
       max = 99,
       number1 = Math.round(Math.random() * (max - min) + min),
       number2 = Math.round(Math.random() * (max - min) + min);
-  const sign = ["+", "-", "*"],
+  const sign = ["+", "-"],
         rand = sign[Math.floor(Math.random() * sign.length)];
   display.value = `${number1} ${rand} ${number2}`;
 }

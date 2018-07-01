@@ -31,7 +31,7 @@ label.options {
   cursor: pointer;
 }
 .instructions {
-  width: 15em;
+  width: 17em;
 }
 .counter {
   margin-left: 10%;
@@ -64,6 +64,7 @@ label.options {
   font-size: 40px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.9);
+  color: black;
 }
 .scoreLabel {
   margin: 5% auto;
@@ -100,6 +101,7 @@ label.options {
   margin-left: 225px;
   margin-top: -160px;
   cursor: pointer;
+  font-weight: bolder;
 }
 .timer {
   width: 200px;

@@ -20,11 +20,11 @@ function startCount() {
 function resultCheck(ke) {
   const key = ke.key;
 
-  if ("0123456789".includes(key)) {
-      answer === document.activeElement
+  if (/^[-\d.]$/.test(key)) {
+    answer === document.activeElement
         ? answer.value = answer.value
         : answer.value += key;
-  }
+    }
 
   if (["Backspace", "Delete"].includes(key)) {
       answer === document.activeElement
@@ -57,4 +57,4 @@ start.onclick = function timerStart() {
       --timer;
   }
 }
-// document.addEventListener("click", (e) => {console.log(e)});
+// document.addEventListener("keypress", (e) => {console.log(e)});

@@ -27,6 +27,9 @@ legend {
   padding: 0%;
   margin: 0%;
 }
+label.options {
+  cursor: pointer;
+}
 .instructions {
   width: 15em;
 }
@@ -96,6 +99,7 @@ legend {
   letter-spacing: 2px;
   margin-left: 225px;
   margin-top: -160px;
+  cursor: pointer;
 }
 .timer {
   width: 200px;
@@ -128,11 +132,11 @@ article.statistics {
   width: 50%;
   margin: auto;
 }
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .rules {
     display: none;
   }
   h1 {
     font-size: 35px;
   }
-}
+} */

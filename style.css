@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-main {
+.container {
   display: flex;
   justify-content: center;
 }
@@ -18,20 +18,21 @@ legend {
   color: #bafefe;
   font-size: 60px;
 }
-.p-inst, .options {
+.p-inst, .options, .faq {
   color: #27073f;
   font-family: 'Markazi Text', serif;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 35px;
   text-align: justify;
-  padding: 0%;
-  margin: 0%;
+  margin: 0;
+  padding: 0;
 }
 label.options {
   cursor: pointer;
 }
 .instructions {
   width: 17em;
+  margin: 5px auto;
 }
 .counter {
   margin-left: 10%;
@@ -133,6 +134,12 @@ article.statistics {
   background-color: #0c082e;
   width: 50%;
   margin: auto;
+}
+.colon-color {
+  color: #28525b;
+}
+.ins-hl {
+  color: red;
 }
 /* @media screen and (max-width: 800px) {
   .rules {

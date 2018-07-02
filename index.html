@@ -19,16 +19,23 @@
     <h1>Simple Math Challenge!</h1>
   </header>
 
-  <main>
+  <main class="container">
     <!-- Points guide lines -->
     <section>
+      <fieldset>
+          <legend>FAQ:</legend>
+          <p class="faq">
+            Use keyboard.<br>
+            Press <span class="ins-hl">s/start</span> to START.
+          </p>
+      </fieldset>
       <fieldset class="instructions">
         <legend>Points:</legend>
           <p class="p-inst">
-            Excellent: 19+<br>
-            Good: 14-18<br>
-            Fine: 9-13<br>
-            Bad: &lt; 9
+            Excellent<span class="colon-color">:</span> 19+<br>
+            Good<span class="colon-color">:</span> 14-18<br>
+            Fine<span class="colon-color">:</span> 9-13<br>
+            Bad<span class="colon-color">:</span> &lt; 9
           </p>
       </fieldset>
     </section>
@@ -59,8 +66,8 @@
             <label class="options" for="math-operations">Default</label>
           </div>
           <div>
-            <input type="radio" id="hz" name="math">
-            <label class="options" for="hz">hz</label>
+            <input type="radio" id="test" name="math">
+            <label class="options" for="test">test</label>
           </div>
       </fieldset>
     </section>

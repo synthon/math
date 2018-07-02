@@ -41,7 +41,7 @@ function resultCheck(ke) {
     startCount();
   }
 
-  if(/[sS]/.test(key)) {
+  if(/^[sS]$/.test(key)) {
     start.onclick();
   }
 }

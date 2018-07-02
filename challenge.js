@@ -63,4 +63,5 @@ start.onclick = function timerStart() {
   }
 }
 
+document.addEventListener("keypress", (e) => {document.activeElement.blur(e)});
 // document.addEventListener("keypress", (e) => {console.log(e)});

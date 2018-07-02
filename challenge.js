@@ -42,7 +42,7 @@ function resultCheck(ke) {
   }
 
   if(/[sS]/.test(key)) {
-    start.onclick;
+    start.onclick();
   }
 }
 document.addEventListener("keydown", resultCheck);

@@ -31,6 +31,8 @@ function startCount() {
   if (rand === "/") {
     if (number1 % number2 === 0) {
       display.value = `${number1} ${rand} ${number2}`;
+    } else {
+      startCount();
     }
   } else {
     display.value = `${number1} ${rand} ${number2}`;

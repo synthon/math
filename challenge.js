@@ -1,28 +1,58 @@
+/********************
+ *
+ * Global vars
+ *
+********************/
 const display = document.querySelector(".example"),
-      answer  = document.querySelector(".answer"),
-      score   = document.querySelector("#score"),
-      start   = document.querySelector(".start");
-let   timer   = 30;
+      answer = document.querySelector(".answer"),
+      score = document.querySelector("#score"),
+      start = document.querySelector(".start");
 
-// pretend to be main field function
+/********************
+ *
+ * Settings field
+ *
+********************/
 function startCount() {
-  let   min = 1,
-        max = 99,
-        number1 = Math.round(Math.random() * (max-min) + min),
-        number2 = Math.round(Math.random() * (max-min) + min);
-  const sign = ["+", "-"],
-        rand = sign[Math.floor(Math.random() * sign.length)];
+  const rangeMin = document.querySelector("#mm-range-min").valueAsNumber,
+        rangeMax = document.querySelector("#mm-range-max").valueAsNumber;
 
-  display.value = `${number1} ${rand} ${number2}`;
+  let min = rangeMin,
+      max = rangeMax,
+      number1 = Math.round(Math.random() * (max-min) + min),
+      number2 = Math.round(Math.random() * (max-min) + min),
+      checked = document.querySelectorAll("input[name=math]:checked"),
+      sign = [];
+
+  checked.forEach((e) => {sign.push(e.value)});
+
+  let rand = sign[Math.floor(Math.random() * sign.length)];
+
+  if (rand === "/") {
+    if (number1 % number2 === 0) {
+      display.value = `${number1} ${rand} ${number2}`;
+    }
+  } else {
+    display.value = `${number1} ${rand} ${number2}`;
+  }
 }
 
-(() => {startCount()})(); //math example iife
+/********************
+ *
+ * field iife
+ *
+********************/
+(() => {startCount()})();
 
-// input/check answer
+/********************
+ *
+ * input/check answer
+ *
+********************/
 function resultCheck(ke) {
   const key = ke.key;
 
-  if(/^[-\d]$/.test(key)) {
+  if((/^[-\d]$/).test(key)) {
     answer.value += key;
   }
 
@@ -31,7 +61,7 @@ function resultCheck(ke) {
   }
 
   if(["Enter"].includes(key)) {
-    points = parseInt(score.textContent);
+    const points = parseInt(score.textContent);
 
     eval(display.value) === parseInt(answer.value)
       ? score.textContent = points + 1
@@ -41,19 +71,23 @@ function resultCheck(ke) {
     startCount();
   }
 
-  if(/^[sS]$/.test(key)) {
+  if((/^[sS]$/).test(key)) {
     start.onclick();
   }
 }
-document.addEventListener("keydown", resultCheck);
 
-// start timer
+/********************
+ *
+ * start timer
+ *
+********************/
+let timer = 30;
 
 start.onclick = function timerStart() {
   document.querySelector(".timer").textContent = timer;
 
   if (timer < 0) {
-      alert("Time's UP!");
+      alert("You got " + score.textContent + " points");
       timer = 30;
       score.textContent = "0";
   }
@@ -63,5 +97,11 @@ start.onclick = function timerStart() {
   }
 }
 
+/********************
+ *
+ * listeners
+ *
+********************/
+document.addEventListener("keydown", resultCheck);
 document.addEventListener("keypress", (e) => {document.activeElement.blur(e)});
-// document.addEventListener("keypress", (e) => {console.log(e)});
+// document.addEventListener("click", (e) => {console.log(e)});

@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:100,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script async src="challenge.js"></script>
   <title>Math Challenge</title>
 </head>
 
@@ -25,8 +24,11 @@
       <fieldset>
           <legend>FAQ:</legend>
           <p class="faq">
-            Use keyboard.<br>
-            Press <span class="ins-hl">s/start</span> to START.
+            Use keyboard<br>
+            Press <span class="ins-hl">s/start</span> to START<br>
+            Enter to submit<br>
+            <span class="green">+1 pt</span> if correct<br>
+            <span class="red">-2 pts</span> if not correct
           </p>
       </fieldset>
       <fieldset class="instructions">
@@ -40,12 +42,12 @@
       </fieldset>
     </section>
 
-    <!-- do calculations here -->
+    <!-- calculations -->
     <section class="counter">
       <div class="field">
           <div><input class="example" disabled></div>
           <div><input class="answer" disabled></div>
-          <div><p class="scoreLabel">SCORE</p></div>
+          <div><p class="scoreLabel">Points</p></div>
           <div id="score">0</div>
           <div class="start">start</div>
       </div>
@@ -53,21 +55,32 @@
       <div class="time">seconds<br>left</div>
     </section>
 
-    <!-- choosing stuff what you wanna do-->
+    <!-- settings-->
     <section>
-      <fieldset class="instructions">
-        <legend>Options:</legend>
+      <fieldset class="levels">
+        <legend>Settings:</legend>
           <div>
-            <input type="radio" id="sqrt" name="math">
-            <label class="options" for="sqrt">sqrt</label>
-          </div>
-          <div>
-            <input type="radio" id="math-operations" name="math" checked>
-            <label class="options" for="math-operations">Default</label>
-          </div>
-          <div>
-            <input type="radio" id="test" name="math">
-            <label class="options" for="test">test</label>
+            <label class="settings">Numbers range: </label><br>
+            <label class="settings" for="mm-range-min">Min: </label>
+            <input class="settings" type="number" id="mm-range-min" value="1" min="1" onpaste="return false"><br>
+            <label class="settings" for="mm-range-max">Max: </label>
+            <input class="settings" type="number" id="mm-range-max" value="10" min="1" onpaste="return false"><br>
+
+            <input class="settings" type="checkbox" name="math" id="addition" value="+" checked>
+            <label class="settings" for="addition">Addition</label><br>
+
+            <input class="settings" type="checkbox" name="math" id="subtraction" value="-">
+            <label class="settings" for="subtraction">Subtraction</label><br>
+
+            <input class="settings" type="checkbox" name="math" id="multiplication" value="*">
+            <label class="settings" for="multiplication">Multiplication</label><br>
+
+            <input class="settings" type="checkbox" name="math" id="division" value="/">
+            <label class="settings" for="division">Division</label><br>
+
+            <input class="settings" type="checkbox" id="square-root">
+            <label class="settings" for="square-root"><del>Square root</del></label><br>
+            <button class="apply" type="button" onclick="startCount()">Apply</button>
           </div>
       </fieldset>
     </section>
@@ -79,6 +92,7 @@
     <h2>Statistics</h2>
   </article>
 
+  <script src="challenge.js"></script>
 </body>
 
 </html>

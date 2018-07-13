@@ -1,4 +1,4 @@
-:root {
+html {
   background: url("pexels-photo-722141.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@ legend {
   color: #27073f;
   font-family: 'Markazi Text', serif;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 30px;
   text-align: justify;
   margin: 0;
   padding: 0;
@@ -33,6 +33,11 @@ label.options {
 .instructions {
   width: 17em;
   margin: 5px auto;
+}
+.levels {
+  width: 17em;
+  margin: 5px auto;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .counter {
   margin-left: 10%;
@@ -69,7 +74,8 @@ label.options {
 }
 .scoreLabel {
   margin: 5% auto;
-  font-size: 70px;
+  margin-bottom: 10%;
+  font-size: 60px;
   text-align: center;
   font-family: 'Encode Sans Condensed', sans-serif;
   color: #2f0037;
@@ -140,6 +146,34 @@ article.statistics {
 }
 .ins-hl {
   color: red;
+}
+#mm-range-min, #mm-range-max {
+  width: 100px;
+}
+.settings {
+  color: #28203e;
+  font-family: 'Markazi Text', serif;
+  font-weight: bolder;
+  font-size: 2em;
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+}
+.apply {
+  color: rgb(12, 8, 46);
+  font-family: 'Markazi Text', serif;
+  font-weight: bolder;
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+  width: 6em;
+  height: 1.2em;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
 }
 /* @media screen and (max-width: 800px) {
   .rules {

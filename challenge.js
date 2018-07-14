@@ -15,28 +15,51 @@ const display = document.querySelector(".example"),
 ********************/
 function startCount() {
   const rangeMin = document.querySelector("#mm-range-min").valueAsNumber,
-        rangeMax = document.querySelector("#mm-range-max").valueAsNumber;
+        rangeMax = document.querySelector("#mm-range-max").valueAsNumber,
+        checked = document.querySelectorAll("input[name=math]:checked"),
+        digits = document.querySelector("input[name=digits]:checked"),
+        range = document.getElementsByName("range");
 
-  let min = rangeMin,
-      max = rangeMax,
-      number1 = Math.round(Math.random() * (max-min) + min),
-      number2 = Math.round(Math.random() * (max-min) + min),
-      checked = document.querySelectorAll("input[name=math]:checked"),
-      sign = [];
-
+  let sign = [];
   checked.forEach((e) => {sign.push(e.value)});
 
-  let rand = sign[Math.floor(Math.random() * sign.length)];
+  let rand = sign[Math.floor(Math.random() * sign.length)],
+      singleDigitsOne = Math.round(Math.random() * 8 + 1),
+      singleDigitsTwo = Math.round(Math.random() * 8 + 1),
+      expression = `${singleDigitsOne} ${rand} ${singleDigitsTwo}`;
+  const appropriate = eval(expression) >= rangeMin && eval(expression) <= rangeMax,
+        rem = singleDigitsOne % singleDigitsTwo === 0;
 
-  if (rand === "/") {
-    if (number1 % number2 === 0) {
-      display.value = `${number1} ${rand} ${number2}`;
-    } else {
-      startCount();
-    }
-  } else {
-    display.value = `${number1} ${rand} ${number2}`;
-  }
+      if (appropriate) {
+        /********************
+         * Single digits
+         ********************/
+        if (parseInt(digits.value) === 1) {
+          // range.forEach((e) => {e.max = "9"});
+          if (rand === "/") {
+            rem ? display.value = expression : startCount();
+          } else {
+            display.value = expression;
+          }
+        }
+
+        /********************
+         * Double digits
+         ********************/
+        if (parseInt(digits.value) === 2) {
+          return display.value = expression;
+        }
+
+         /********************
+         * Triple digits
+         ********************/
+        if (parseInt(digits.value) === 3) {
+          return display.value = expression;
+        }
+
+      } else {
+        startCount();
+      }
 }
 
 /********************

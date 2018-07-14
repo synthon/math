@@ -60,12 +60,23 @@
       <fieldset class="levels">
         <legend>Settings:</legend>
           <div>
-            <label class="settings">Numbers range: </label><br>
-            <label class="settings" for="mm-range-min">Min: </label>
-            <input class="settings" type="number" id="mm-range-min" value="1" min="1" onpaste="return false"><br>
-            <label class="settings" for="mm-range-max">Max: </label>
-            <input class="settings" type="number" id="mm-range-max" value="10" min="1" onpaste="return false"><br>
+            <label class="settings"><span class="set-color"><ins>Digits:</ins></span></label><br>
+            <input class="settings" type="radio" name="digits" id="single" value="1" checked>
+            <label class="settings" for="single">single</label>
+            <input class="settings" type="radio" name="digits" id="double" value="2">
+            <label class="settings" for="double">double</label>
+            <input class="settings" type="radio" name="digits" id="triple" value="3">
+            <label class="settings" for="triple">triple</label><br>
 
+
+            <label class="settings"><span class="set-color"><ins>Answer range:</ins></span></label><br>
+            <label class="settings" for="mm-range-min">Min: </label>
+            <input class="settings" type="number" name="range" id="mm-range-min" value="1" min="1" onpaste="return false">
+            <label class="settings" for="mm-range-max">Max: </label>
+            <input class="settings" type="number" name="range" id="mm-range-max" value="15" min="2" onpaste="return false"><br>
+
+
+            <label class="settings"><span class="set-color"><ins>Options:</ins></span></label><br>
             <input class="settings" type="checkbox" name="math" id="addition" value="+" checked>
             <label class="settings" for="addition">Addition</label><br>
 
@@ -78,7 +89,7 @@
             <input class="settings" type="checkbox" name="math" id="division" value="/">
             <label class="settings" for="division">Division</label><br>
 
-            <input class="settings" type="checkbox" id="square-root">
+            <input class="settings" type="checkbox" id="square-root" value="sqrt">
             <label class="settings" for="square-root"><del>Square root</del></label><br>
             <button class="apply" type="button" onclick="startCount()">Apply</button>
           </div>

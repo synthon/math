@@ -1,4 +1,8 @@
 html {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background: url("pexels-photo-722141.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,6 +30,7 @@ legend {
   text-align: justify;
   margin: 0;
   padding: 0;
+  margin-bottom: -5px;
 }
 label.options {
   cursor: pointer;

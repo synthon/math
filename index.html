@@ -22,14 +22,14 @@
     <!-- Points guide lines -->
     <section>
       <fieldset>
-          <legend>FAQ:</legend>
-          <p class="faq">
-            Use keyboard<br>
-            Press <span class="ins-hl">s/start</span> to START<br>
-            Enter to submit<br>
-            <span class="green">+1 pt</span> if correct<br>
-            <span class="red">-2 pts</span> if not correct
-          </p>
+        <legend>FAQ:</legend>
+        <p class="faq">
+          Use keyboard<br>
+          Press <span class="ins-hl">s/start</span> to START<br>
+          Enter to submit<br>
+          <span class="green">+1 pt</span> if correct<br>
+          <span class="red">-2 pts</span> if not correct
+        </p>
       </fieldset>
       <fieldset class="instructions">
         <legend>Points:</legend>
@@ -45,11 +45,11 @@
     <!-- calculations -->
     <section class="counter">
       <div class="field">
-          <div><input class="example" disabled></div>
-          <div><input class="answer" disabled></div>
-          <div><p class="scoreLabel">Points</p></div>
-          <div id="score">0</div>
-          <div class="start">start</div>
+        <div><input class="example" disabled></div>
+        <div><input class="answer" disabled></div>
+        <div><p class="scoreLabel">Points</p></div>
+        <div id="score">0</div>
+        <div class="start">start</div>
       </div>
       <div class="timer">30</div>
       <div class="time">seconds<br>left</div>
@@ -69,7 +69,7 @@
             <label class="settings" for="triple">triple</label><br>
 
 
-            <label class="settings"><span class="set-color"><ins>Answer range:</ins></span></label><br>
+            <label class="settings"><span class="set-color"><ins><del>Answer range:</del></ins></span></label><br>
             <label class="settings" for="mm-range-min">Min: </label>
             <input class="settings" type="number" name="range" id="mm-range-min" value="1" min="1" onpaste="return false">
             <label class="settings" for="mm-range-max">Max: </label>
@@ -80,7 +80,7 @@
             <input class="settings" type="checkbox" name="math" id="addition" value="+" checked>
             <label class="settings" for="addition">Addition</label><br>
 
-            <input class="settings" type="checkbox" name="math" id="subtraction" value="-">
+            <input class="settings" type="checkbox" name="math" id="subtraction" value="-" checked>
             <label class="settings" for="subtraction">Subtraction</label><br>
 
             <input class="settings" type="checkbox" name="math" id="multiplication" value="*">
@@ -89,9 +89,9 @@
             <input class="settings" type="checkbox" name="math" id="division" value="/">
             <label class="settings" for="division">Division</label><br>
 
-            <input class="settings" type="checkbox" id="square-root" value="sqrt">
-            <label class="settings" for="square-root"><del>Square root</del></label><br>
-            <button class="apply" type="button" onclick="startCount()">Apply</button>
+            <input class="settings" type="checkbox" name="sqrt" id="square-root" value="sqrt">
+            <label class="settings" for="square-root">Square root</label><br>
+            <button class="apply" type="button" onclick="fieldLoad();">Apply</button>
           </div>
       </fieldset>
     </section>

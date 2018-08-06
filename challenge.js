@@ -1,132 +1,135 @@
-/********************
- *
- * Global vars
- *
-********************/
-const display = document.querySelector(".example"),
-      answer = document.querySelector(".answer"),
-      score = document.querySelector("#score"),
-      start = document.querySelector(".start");
+"use strict";
 
-/********************
- *
- * Settings field
- *
-********************/
-function startCount() {
-  const rangeMin = document.querySelector("#mm-range-min").valueAsNumber,
-        rangeMax = document.querySelector("#mm-range-max").valueAsNumber,
-        checked = document.querySelectorAll("input[name=math]:checked"),
-        digits = document.querySelector("input[name=digits]:checked"),
-        range = document.getElementsByName("range");
+/** Some global queries */
+const example = document.querySelector(".example"), // example input
+      timer = document.querySelector(".timer"), // timer value
+      counter = document.querySelector(".start"), // start timer
+      answer = document.querySelector(".answer"), // answer input
+      points = document.querySelector("#score"); // point value
+let   tip = false, // timer in progress
+      sqrt = false; // square r8t?!
 
-  let sign = [];
-  checked.forEach((e) => {sign.push(e.value)});
 
-  let rand = sign[Math.floor(Math.random() * sign.length)],
-      singleDigitsOne = Math.round(Math.random() * 8 + 1),
-      singleDigitsTwo = Math.round(Math.random() * 8 + 1),
-      expression = `${singleDigitsOne} ${rand} ${singleDigitsTwo}`;
-  const appropriate = eval(expression) >= rangeMin && eval(expression) <= rangeMax,
-        rem = singleDigitsOne % singleDigitsTwo === 0;
+/** Settings */
+const settings = () => {
+  const sign = document.querySelectorAll("input[name=math]:checked"), // sign choose
+        chooseDigits = document.querySelector("input[name=digits]:checked").value, // Set. digits
+        squareRoot = document.querySelector("#square-root").checked;
+  let randSign = sign[Math.random() * sign.length >> 0], // get random sign
+      randNumber1 = 0,
+      randNumber2 = 0;
 
-      if (appropriate) {
-        /********************
-         * Single digits
-         ********************/
-        if (parseInt(digits.value) === 1) {
-          // range.forEach((e) => {e.max = "9"});
-          if (rand === "/") {
-            rem ? display.value = expression : startCount();
-          } else {
-            display.value = expression;
-          }
-        }
+  // random number generator
+  if (chooseDigits == 1) {
+    randNumber1 = Math.random() * 9 + 1 >> 0;
+    randNumber2 = Math.random() * 9 + 1 >> 0;
+  } else if (chooseDigits == 2) {
+    randNumber1 = Math.random() * 90 + 10 >> 0;
+    randNumber2 = Math.random() * 90 + 10 >> 0;
+  } else {
+    randNumber1 = Math.random() * 900 + 100 >> 0;
+    randNumber2 = Math.random() * 900 + 100 >> 0;
+  }
 
-        /********************
-         * Double digits
-         ********************/
-        if (parseInt(digits.value) === 2) {
-          return display.value = expression;
-        }
+  // check if square root practice
+  if (squareRoot) {
+    sqrt = true;
+    return [randNumber1, "sqrt", randNumber2];
+  }
 
-         /********************
-         * Triple digits
-         ********************/
-        if (parseInt(digits.value) === 3) {
-          return display.value = expression;
-        }
+  // check for division
+  if (randSign !== undefined && randSign.value === "/") {
+    if (randNumber1 % randNumber2 !== 0) {
+      fieldLoad()["Please help me with this!!!"];
+    }
+  }
 
-      } else {
-        startCount();
-      }
+  return [randNumber1, randSign, randNumber2];
+};
+
+
+/** SMC field */
+class SMC {
+  constructor(e) {
+    console.log(e)
+    if(e[1] === "sqrt") {
+      this.square = e[0] * e[0];
+    } else if (e[1] !== undefined) {
+      this.fNumber = e[0];
+      this.sNumber = e[2];
+      this.rSign = e[1].value;
+    }
+  }
+
+  static newExample(e) {
+    console.log(e)
+    if (e.rSign !== undefined) {
+      example.value = `${e.fNumber} ${e.rSign} ${e.sNumber}`
+    } else if (e.square !== undefined) {
+      example.value =  `${e.square}`
+    } else {
+      example.value = "Meh..?!"
+    }
+  }
 }
+const fieldLoad = () => SMC.newExample(new SMC(settings()));
+(() => fieldLoad())(); // not sure if an iife is necessary
 
-/********************
- *
- * field iife
- *
-********************/
-(() => {startCount()})();
 
-/********************
- *
- * input/check answer
- *
-********************/
-function resultCheck(ke) {
+/** Check your answer */
+const answerCheck = (ke) => {
   const key = ke.key;
 
-  if((/^[-\d]$/).test(key)) {
-    answer.value += key;
-  }
+  if(/^[\-\d]$/.test(key)) answer.value += key;
 
-  if(["Backspace", "Delete"].includes(key)) {
-    answer.value = answer.value.slice(this.length, -1);
-  }
+  if(/^Backspace|Delete$/.test(key)) answer.value = answer.value.slice(0, -1);
 
-  if(["Enter"].includes(key)) {
-    const points = parseInt(score.textContent);
+  if(/^Enter$/.test(key)) {
+    const score = parseInt(points.textContent);
 
-    eval(display.value) === parseInt(answer.value)
-      ? score.textContent = points + 1
-      : score.textContent = points - 2;
-
+    if (!sqrt) {
+     eval(example.value) === parseInt(answer.value)
+      ? points.textContent = score + 1
+      : points.textContent = score - 2;
+    } else {
+      Math.sqrt(example.value) === parseInt(answer.value)
+        ? points.textContent = score + 1
+        : points.textContent = score - 2;
+    }
     answer.value = "";
-    startCount();
+    fieldLoad();
   }
 
-  if((/^[sS]$/).test(key)) {
-    start.onclick();
+  if(/^[sS]$/.test(key) && !tip) countdown();
+};
+
+
+/** Timer */
+const countdown = () => {
+  let count = setInterval(down, 1000);
+  tip = true;
+  points.textContent = "0";
+
+  function down() {
+    if (timer.textContent < 1) {
+      clearInterval(count);
+      tip = false;
+      alert(`You got ${points.textContent} points!`);
+      timer.textContent = 30;
+    } else {
+      --timer.textContent;
+    }
   }
-}
+};
 
-/********************
- *
- * start timer
- *
-********************/
-let timer = 30;
 
-start.onclick = function timerStart() {
-  document.querySelector(".timer").textContent = timer;
+/** Start Timer */
+counter.addEventListener("click", () => {if (!tip) countdown()}, {passive: true});
 
-  if (timer < 0) {
-      alert("You got " + score.textContent + " points");
-      timer = 30;
-      score.textContent = "0";
-  }
-  else {
-      setTimeout(timerStart, 1000);
-      --timer;
-  }
-}
 
-/********************
- *
- * listeners
- *
-********************/
-document.addEventListener("keydown", resultCheck);
-document.addEventListener("keypress", (e) => {document.activeElement.blur(e)});
-// document.addEventListener("click", (e) => {console.log(e)});
+/** KB Listener */
+document.addEventListener("keydown", answerCheck, {passive: true});
+
+
+/** Mouse Listener */
+// document.addEventListener("click", e => console.log(e), {passive: true});

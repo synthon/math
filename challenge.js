@@ -18,6 +18,7 @@ const settings = () => {
   let randSign = sign[Math.random() * sign.length >> 0], // get random sign
       randNumber1 = 0,
       randNumber2 = 0;
+  answer.value = "";
 
   // random number generator
   if (chooseDigits == 1) {
@@ -80,11 +81,11 @@ const fieldLoad = () => SMC.newExample(new SMC(settings()));
 const answerCheck = (ke) => {
   const key = ke.key;
 
-  if(/^[\-\d]$/.test(key)) answer.value += key;
+  if (/^[\-\d]$/.test(key)) answer.value += key;
 
-  if(/^Backspace|Delete$/.test(key)) answer.value = answer.value.slice(0, -1);
+  if (/^Backspace|Delete$/.test(key)) answer.value = answer.value.slice(0, -1);
 
-  if(/^Enter$/.test(key)) {
+  if (/^Enter$/.test(key)) {
     const score = parseInt(points.textContent);
 
     if (!sqrt && example.value !== "Meh..?!") {
@@ -101,7 +102,7 @@ const answerCheck = (ke) => {
   return fieldLoad();
   }
 
-  if(/^[sS]$/.test(key) && !tip) countdown();
+  if (/^[sS]$/.test(key) && !tip) countdown();
 };
 
 

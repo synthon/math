@@ -8,7 +8,7 @@ const example = document.querySelector(".example"), // example input
       points = document.querySelector("#score"), // point value
       apply = document.querySelector(".apply"); // apply button
 let   tip = false, // timer in progress
-      sqrt = false;
+      sqrt = false; // square root on/off
 
 /** Settings */
 const settings = () => {
@@ -63,6 +63,7 @@ const SMC = class SMC {
 
   static newExample(e) {
     if (e.rSign) {
+      sqrt = false;
       example.value = `${e.fNumber} ${e.rSign} ${e.sNumber}`;
     } else if (e.square) {
       example.value = `${e.square}`;

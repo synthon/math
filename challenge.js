@@ -5,7 +5,8 @@ const example = document.querySelector(".example"), // example input
       timer = document.querySelector(".timer"), // timer value
       counter = document.querySelector(".start"), // start timer
       answer = document.querySelector(".answer"), // answer input
-      points = document.querySelector("#score"); // point value
+      points = document.querySelector("#score"), // point value
+      apply = document.querySelector(".apply"); // point value
 let   tip = false, // timer in progress
       sqrt = false; // square r8t?!
 
@@ -40,7 +41,7 @@ const settings = () => {
   // check for division
   if (randSign !== undefined && randSign.value === "/") {
     if (randNumber1 % randNumber2 !== 0) {
-      fieldLoad()["Please help me with this!!!"];
+      fieldLoad()["Pls help me with this!!!"];
     }
   }
 
@@ -49,7 +50,7 @@ const settings = () => {
 
 
 /** SMC field */
-class SMC {
+const SMC = class SMC {
   constructor(e) {
     console.log(e)
     if(e[1] === "sqrt") {
@@ -125,6 +126,10 @@ const countdown = () => {
 
 /** Start Timer */
 counter.addEventListener("click", () => {if (!tip) countdown()}, {passive: true});
+
+
+/** Apply button */
+apply.addEventListener("click", fieldLoad, {passive: true});
 
 
 /** KB Listener */

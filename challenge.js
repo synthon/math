@@ -91,7 +91,7 @@ const answerCheck = (ke) => {
     if (!sqrt) {
       eval(example.value) === parseInt(answer.value)
         ? points.textContent = score + 1
-        : points.textContent = score - 2;
+        : points.textContent = score - 1;
     } else {
       Math.sqrt(example.value) === parseInt(answer.value)
         ? points.textContent = score + 1

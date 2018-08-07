@@ -111,6 +111,7 @@ const countdown = () => {
   let count = setInterval(down, 1000);
   tip = true;
   points.textContent = "0";
+  answer.value = "";
 
   function down() {
     if (timer.textContent < 1) {

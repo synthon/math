@@ -8,8 +8,7 @@ const example = document.querySelector(".example"), // example input
       points = document.querySelector("#score"), // point value
       apply = document.querySelector(".apply"); // apply button
 let   tip = false, // timer in progress
-      sqrt = false; // []r8t?
-
+      sqrt = false;
 
 /** Settings */
 const settings = () => {
@@ -64,9 +63,8 @@ const SMC = class SMC {
 
   static newExample(e) {
     if (e.rSign) {
-      sqrt = false;
       example.value = `${e.fNumber} ${e.rSign} ${e.sNumber}`;
-    } else if (sqrt) {
+    } else if (e.square) {
       example.value = `${e.square}`;
     } else {
       example.value = `Meh..?!`;
@@ -88,7 +86,7 @@ const answerCheck = (ke) => {
   if(/^Enter$/.test(key)) {
     const score = parseInt(points.textContent);
 
-    if (!sqrt) {
+    if (!sqrt && example.value !== "Meh..?!") {
       eval(example.value) === parseInt(answer.value)
         ? points.textContent = score + 1
         : points.textContent = score - 1;

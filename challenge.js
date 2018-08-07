@@ -6,9 +6,9 @@ const example = document.querySelector(".example"), // example input
       counter = document.querySelector(".start"), // start timer
       answer = document.querySelector(".answer"), // answer input
       points = document.querySelector("#score"), // point value
-      apply = document.querySelector(".apply"); // point value
+      apply = document.querySelector(".apply"); // apply button
 let   tip = false, // timer in progress
-      sqrt = false; // square r8t?!
+      sqrt = false; // []r8t?
 
 
 /** Settings */
@@ -35,41 +35,41 @@ const settings = () => {
   // check if square root practice
   if (squareRoot) {
     sqrt = true;
-    return [randNumber1, "sqrt", randNumber2];
+    return {randNumber1, sqrt};
   }
 
   // check for division
-  if (randSign !== undefined && randSign.value === "/") {
+  if (randSign && randSign.value === "/") {
     if (randNumber1 % randNumber2 !== 0) {
-      fieldLoad()["Pls help me with this!!!"];
+      return settings();
     }
   }
 
-  return [randNumber1, randSign, randNumber2];
+  return {randNumber1, randSign, randNumber2};
 };
 
 
 /** SMC field */
 const SMC = class SMC {
   constructor(e) {
-    console.log(e)
-    if(e[1] === "sqrt") {
-      this.square = e[0] * e[0];
-    } else if (e[1] !== undefined) {
-      this.fNumber = e[0];
-      this.sNumber = e[2];
-      this.rSign = e[1].value;
+    if (e.sqrt) {
+      this.square = e.randNumber1 * e.randNumber1;
+    }
+    if (e.randSign !== undefined) {
+      this.fNumber = e.randNumber1;
+      this.sNumber = e.randNumber2;
+      this.rSign = e.randSign.value;
     }
   }
 
   static newExample(e) {
-    console.log(e)
-    if (e.rSign !== undefined) {
-      example.value = `${e.fNumber} ${e.rSign} ${e.sNumber}`
-    } else if (e.square !== undefined) {
-      example.value =  `${e.square}`
+    if (e.rSign) {
+      sqrt = false;
+      example.value = `${e.fNumber} ${e.rSign} ${e.sNumber}`;
+    } else if (sqrt) {
+      example.value = `${e.square}`;
     } else {
-      example.value = "Meh..?!"
+      example.value = `Meh..?!`;
     }
   }
 }
@@ -86,19 +86,20 @@ const answerCheck = (ke) => {
   if(/^Backspace|Delete$/.test(key)) answer.value = answer.value.slice(0, -1);
 
   if(/^Enter$/.test(key)) {
-    const score = parseInt(points.textContent);
+    let score = parseInt(points.textContent);
 
     if (!sqrt) {
-     eval(example.value) === parseInt(answer.value)
-      ? points.textContent = score + 1
-      : points.textContent = score - 2;
+      eval(example.value) === parseInt(answer.value)
+        ? points.textContent = score + 1
+        : points.textContent = score - 2;
     } else {
       Math.sqrt(example.value) === parseInt(answer.value)
         ? points.textContent = score + 1
-        : points.textContent = score - 2;
+        : points.textContent = score - 1;
     }
-    answer.value = "";
-    fieldLoad();
+
+  answer.value = "";
+  fieldLoad();
   }
 
   if(/^[sS]$/.test(key) && !tip) countdown();

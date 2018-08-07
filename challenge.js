@@ -86,7 +86,7 @@ const answerCheck = (ke) => {
   if(/^Backspace|Delete$/.test(key)) answer.value = answer.value.slice(0, -1);
 
   if(/^Enter$/.test(key)) {
-    let score = parseInt(points.textContent);
+    const score = parseInt(points.textContent);
 
     if (!sqrt) {
       eval(example.value) === parseInt(answer.value)
@@ -99,7 +99,7 @@ const answerCheck = (ke) => {
     }
 
   answer.value = "";
-  fieldLoad();
+  return fieldLoad();
   }
 
   if(/^[sS]$/.test(key) && !tip) countdown();

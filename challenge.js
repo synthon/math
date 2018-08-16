@@ -10,6 +10,7 @@ const example = document.querySelector(".example"), // example input
 let   tip = false, // timer in progress
       sqrt = false; // square root on/off
 
+
 /** Settings */
 const settings = () => {
   const sign = document.querySelectorAll("input[name=math]:checked"), // sign choose
@@ -72,9 +73,9 @@ const SMC = class SMC {
       example.value = `Meh..?!`;
     }
   }
-}
+};
 const fieldLoad = () => SMC.newExample(new SMC(settings()));
-(() => fieldLoad())(); // not sure if an iife is necessary
+fieldLoad();
 
 
 /** Check your answer */
@@ -139,4 +140,4 @@ document.addEventListener("keydown", answerCheck, {passive: true});
 
 
 /** Mouse Listener */
-// document.addEventListener("click", e => console.log(e), {passive: true});
+document.addEventListener("click", e => console.log(e), {passive: true});

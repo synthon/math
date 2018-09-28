@@ -80,6 +80,9 @@ fieldLoad();
 
 /** Check your answer */
 const answerCheck = (ke) => {
+  ke.preventDefault();
+  ke.stopImmediatePropagation();
+  ke.stopPropagation();
   const key = ke.key;
 
   if (/^[\-\d]$/.test(key)) answer.value += key;

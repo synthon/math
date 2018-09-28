@@ -10,7 +10,7 @@ const example = document.querySelector(".example"), // example input
 let   tip = false, // timer in progress
       sqrt = false; // square root on/off
 
-
+answer.focus();
 /** Settings */
 const settings = () => {
   const sign = document.querySelectorAll("input[name=math]:checked"), // sign choose
@@ -80,9 +80,6 @@ fieldLoad();
 
 /** Check your answer */
 const answerCheck = (ke) => {
-  ke.preventDefault();
-  ke.stopImmediatePropagation();
-  ke.stopPropagation();
   const key = ke.key;
 
   if (/^[\-\d]$/.test(key)) answer.value += key;

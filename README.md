@@ -1,3 +1,3 @@
 # math
 
-https://walterbishopphd.github.io/math/
+https://synthon.github.io/math/
